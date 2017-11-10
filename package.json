@@ -1,0 +1,42 @@
+{
+  "name": "sensor-management-web",
+  "version": "0.0.1",
+  "main": "index.tsx",
+  "author": "Densan Service Corporation",
+  "license": "MIT",
+  "scripts": {
+    "client": "node .\\client\\fuse",
+    "server": "go run .\\server\\main.go",
+    "start": "concurrently \"node .\\client\\fuse\" \"go run .\\server\\main.go\"",
+    "dist": "node .\\client\\fuse dist",
+    "db-create": "mysql -u root --default-character-set=utf8 < .\\db\\create_table.sql",
+    "db-up": "node_modules\\.bin\\db-migrate up",
+    "db-down": "node_modules\\.bin\\db-migrate down"
+  },
+  "dependencies": {
+    "history": "^4.7.2",
+    "material-ui": "^0.19.4",
+    "react": "^16.1.0",
+    "react-dom": "^16.1.0",
+    "react-redux": "^5.0.6",
+    "react-router": "^4.2.0",
+    "react-router-dom": "^4.2.2",
+    "react-router-redux": "^5.0.0-alpha.8",
+    "react-tap-event-plugin": "^3.0.2",
+    "redux-form": "^7.1.2",
+    "redux-form-website-template": "^0.0.80"
+  },
+  "devDependencies": {
+    "@types/react": "^16.0.22",
+    "@types/react-dom": "^16.0.3",
+    "concurrently": "^3.5.0",
+    "db-migrate": "^0.10.0-beta.24",
+    "db-migrate-mysql": "^1.1.10",
+    "fuse-box": "^2.5.0-beta.1",
+    "node-sass": "^4.6.0",
+    "redux": "^3.7.2",
+    "tslib": "^1.8.0",
+    "typescript": "^2.6.1",
+    "uglify-js": "^3.1.8"
+  }
+}

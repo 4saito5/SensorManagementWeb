@@ -1,0 +1,6 @@
+■dependencies
+yarn add history react material-ui react-dom react-redux react-router react-router-dom react-router-redux@next redux-form redux-form-website-template react-tap-event-plugin
+
+■devDependencies
+yarn add --dev @types/react @types/react-dom fuse-box redux tslib typescript uglify-js node-sass concurrently db-migrate db-migrate-mysql
+# uglify-es
