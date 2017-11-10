@@ -27,8 +27,6 @@ yarn run server
 go get -u github.com/labstack/echo
 go get -u github.com/go-sql-driver/mysql
 go get -u github.com/gocraft/dbr
-go get -u github.com/dgrijalva/jwt-go
-go get -u golang.org/x/crypto/acme/autocert
 ```
 
 Client + Server build & run
