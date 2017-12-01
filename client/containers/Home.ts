@@ -1,24 +1,24 @@
-import {connect} from 'react-redux'
-import {Dispatch} from 'redux'
-import {ReduxAction, ReduxState} from '../store'
-import {decrementAmount, incrementAmount} from '../modules/Home'
+import { connect } from 'react-redux'
+import { Dispatch } from 'redux'
+import { ReduxAction, ReduxState } from '../store'
+import { portOpenAmount, portCloseAmount } from '../modules/Home'
 import HomeForm from '../component/Home'
 
 // dispatch処理
 export class ActionDispatcher {
-  constructor(private dispatch: (action: ReduxAction) => void) {}
+  constructor(private dispatch: (action: ReduxAction) => void) { }
 
-  public increment(amount: number) {
-    this.dispatch(incrementAmount(amount))
+  public portOpen(amount: number) {
+    this.dispatch(portOpenAmount(amount))
   }
 
-  public decrement(amount: number) {
-    this.dispatch(decrementAmount(amount))
+  public portClose(amount: number) {
+    this.dispatch(portCloseAmount(amount))
   }
 }
 
 // stateとactionの両方を渡す
 export default connect(
-  (state: ReduxState) => ({value: state.home}),
- (dispatch: Dispatch<ReduxAction>) => ({actions: new ActionDispatcher(dispatch)})
+  (state: ReduxState) => ({ value: state.home }),
+  (dispatch: Dispatch<ReduxAction>) => ({ actions: new ActionDispatcher(dispatch) })
 )(HomeForm)

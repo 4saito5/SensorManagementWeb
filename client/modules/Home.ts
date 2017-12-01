@@ -1,30 +1,53 @@
-import {Action} from 'redux'
-// 中身は全部不要。ディレクトリ構成のために作っただけ。
-
+import { Action } from 'redux'
 
 // ActionCreator
 export enum ActionNames {
-  INC = 'counter/increment',
-  DEC = 'counter/decrement',
+  PORT_OPEN = 'home/portOpen',
+  PORT_CLOSE = 'home/portClose',
 }
 
-export interface IncrementAction extends Action {
-  type: ActionNames.INC
-  plusAmount: number
+// PortOpen
+export interface PortOpenAction extends Action {
+  type: ActionNames.PORT_OPEN
+  portNumberAmount: number
 }
-export const incrementAmount = (amount: number): IncrementAction => ({
-  type: ActionNames.INC,
-  plusAmount: amount
+export const portOpenAmount = (amount: number): PortOpenAction => ({
+  type: ActionNames.PORT_OPEN,
+  portNumberAmount: amount
 })
+function updateItemInArray(array, itemId, updateItemCallback) {
+  const updatedItems = array.map(item => {
+    if (item.id !== itemId) {
+      // Since we only want to update one item, preserve all others as they are now
+      return item;
+    }
 
-export interface DecrementAction extends Action {
-  type: ActionNames.DEC
-  minusAmount: number
+    // Use the provided callback to create an updated item
+    const updatedItem = updateItemCallback(item);
+    return updatedItem;
+  });
+
+  return updatedItems;
+}
+function updateObject(oldObject, newValues) { }
+function test(HomeState, action) {
+  console.log('value=', action)
+  const newTodos = updateItemInArray(HomeState, action.id, todo => {
+    return updateObject(todo, { text: action.text });
+  });
+
+  return newTodos;
 }
 
-export const decrementAmount = (amount: number): DecrementAction => ({
-  type: ActionNames.DEC,
-  minusAmount: amount
+
+// PortClose
+export interface PortCloseAction extends Action {
+  type: ActionNames.PORT_CLOSE
+  portNumberAmount: number
+}
+export const portCloseAmount = (amount: number): PortCloseAction => ({
+  type: ActionNames.PORT_CLOSE,
+  portNumberAmount: amount
 })
 
 
@@ -33,16 +56,16 @@ export interface HomeState {
   num: number
 }
 
-export type HomeActions = IncrementAction | DecrementAction
+export type HomeActions = PortOpenAction | PortCloseAction
 
-const initialState:HomeState = {num: 0}
+const initialState: HomeState = { num: 0 }
 
 export default function reducer(state: HomeState = initialState, action: HomeActions): HomeState {
   switch (action.type) {
-    case ActionNames.INC:
-      return {num: state.num + action.plusAmount}
-    case ActionNames.DEC:
-      return {num: state.num - action.minusAmount}
+    case ActionNames.PORT_OPEN:
+      return test(state, action)
+    case ActionNames.PORT_CLOSE:
+      return test(state, action)
     default:
       return state
   }
