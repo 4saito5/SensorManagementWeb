@@ -22,6 +22,11 @@ INSERT INTO smw.m_code(name, seq, value) VALUES ('SEN', 9, 'GPS高度');
 INSERT INTO smw.m_code(name, seq, value) VALUES ('MCN', 0, '製造中');
 INSERT INTO smw.m_code(name, seq, value) VALUES ('MCN', 1, '利用中');
 INSERT INTO smw.m_code(name, seq, value) VALUES ('MCN', 2, '破棄');
+INSERT INTO smw.m_code(name, seq, value) VALUES ('CND', 0, '=');
+INSERT INTO smw.m_code(name, seq, value) VALUES ('CND', 1, '>');
+INSERT INTO smw.m_code(name, seq, value) VALUES ('CND', 2, '<');
+INSERT INTO smw.m_code(name, seq, value) VALUES ('CND', 3, '>=');
+INSERT INTO smw.m_code(name, seq, value) VALUES ('CND', 4, '<=');
 
 CREATE TABLE smw.m_users (
 	`email` varchar(255) NOT NULL comment 'メールアドレス',
@@ -41,10 +46,10 @@ CREATE TRIGGER smw.before_insert_m_machine
 BEFORE INSERT ON smw.m_machine
 FOR EACH ROW
     SET new.serial_no = uuid();
-INSERT INTO smw.m_machine(serial_no, email) VALUES ('test001', 'test');
-INSERT INTO smw.m_machine(email) VALUES ('test');
-INSERT INTO smw.m_machine(email) VALUES ('test');
-INSERT INTO smw.m_machine(email) VALUES ('test');
+INSERT INTO smw.m_machine(serial_no, email, status) VALUES ('test001', 'test', 1);
+INSERT INTO smw.m_machine(email, status) VALUES ('test', 0);
+INSERT INTO smw.m_machine(email, status) VALUES ('test', 1);
+INSERT INTO smw.m_machine(email, status) VALUES ('test', 2);
 
 CREATE TABLE smw.m_machine_use (
 	`serial_no` varchar(255) NOT NULL comment '機器シリアルNo',
@@ -57,6 +62,7 @@ CREATE TABLE smw.m_machine_use (
 	`comment` varchar(255) NULL comment 'コメント',
 	PRIMARY KEY(`serial_no`,`rec_start`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 comment '機器使用記録';
+INSERT INTO smw.m_machine_use(serial_no, email, place_name, rec_start) VALUES ('test001', 'test', 'ベランダ', now());
 
 CREATE TABLE smw.t_sensor (
 	`serial_no` varchar(255) NOT NULL comment '機器シリアルNo',
@@ -64,6 +70,18 @@ CREATE TABLE smw.t_sensor (
 	`sensor_code` smallint unsigned NULL comment 'センサーコード',
 	PRIMARY KEY(`serial_no`,`sensor_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 comment '接続センサー';
+
+CREATE TABLE smw.t_port (
+	`serial_no` varchar(255) NOT NULL comment '機器シリアルNo',
+	`port_no` smallint unsigned NOT NULL comment 'ポート番号',
+	`value` varchar(255) NOT NULL comment '設定値',
+	`conditions` smallint unsigned NULL comment '条件',
+	PRIMARY KEY(`serial_no`,`port_no`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 comment '接続ポート';
+INSERT INTO smw.t_port(serial_no, port_no, value) VALUES ('test001', 1, 'off');
+INSERT INTO smw.t_port(serial_no, port_no, value) VALUES ('test001', 2, 'off');
+INSERT INTO smw.t_port(serial_no, port_no, value) VALUES ('test001', 3, 'off');
+INSERT INTO smw.t_port(serial_no, port_no, value) VALUES ('test001', 4, 'off');
 
 CREATE TABLE smw.t_records (
 	`serial_no` varchar(255) NOT NULL comment '機器シリアルNo',
