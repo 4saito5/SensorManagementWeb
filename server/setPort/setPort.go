@@ -1,4 +1,4 @@
-package port
+package setPort
 
 import (
 	"net/http"
@@ -6,29 +6,25 @@ import (
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/gocraft/dbr"
 	"github.com/labstack/echo"
-	// "html"
-	// "strconv"
-	// "fmt"
 )
 
-//引数ポート情報
+//ポート情報
 type (
 	portInfo struct {
-		serial_no    string `db:"serial_no" json:"serial_no"`	//シリアルNo
-		port_no    	 int `db:"port_no" json:"port_no"`				//ポート番号
-		value    		 string `db:"value" json:"value"`					//設定値
+		serial_no    string `db:"serial_no" json:"serial_no"`	//シリアルNo(引数)
+		port_no    	 int `db:"port_no" json:"port_no"`				//ポート番号(引数)
+		value    		 string `db:"value" json:"value"`					//設定値(引数)
 	}
 )
 
 var (
 	tablename = "t_port"	//接続ポートテーブル
-	seq       = 1
 	conn, _   = dbr.Open("mysql", "root:@tcp(127.0.0.1:3306)/smw", nil)
 	sess      = conn.NewSession(nil)
 )
 
-//ポート情報処理
-func portProcessing(c echo.Context) error {
+//ポート情報更新
+func setPort(c echo.Context) error {
 	port := new(portInfo)
 
 	//ポートエラーを拾う
@@ -36,8 +32,9 @@ func portProcessing(c echo.Context) error {
 		return err
 	}
 
-	//updateSQLを発行する
+	//接続ポートテーブルのupdateSQLを発行する
 	sess.Update(tablename).
+		//SetMap("value = ?",port.value).	//おいおい引数の設定値で更新する
 		SetMap("value = 10").
 		Where(
 					"serial_no = ? AND
