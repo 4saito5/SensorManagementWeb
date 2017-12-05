@@ -5,7 +5,7 @@ import createHistory from 'history/createBrowserHistory'
 //import {Values} from 'redux-form-website-template'
 import * as injectTapEventPlugin from 'react-tap-event-plugin'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
-import './assets/stylesheets/style.scss';
+// import './assets/stylesheets/style.scss';
 // コンテナを追加していく場所
 import { SubmitSignIn } from './modules/SignIn'
 import { SubmitSignUp } from './modules/SignUp'

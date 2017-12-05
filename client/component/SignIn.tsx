@@ -14,7 +14,7 @@ import {
 const validate = values => {
   const requiredFields = ['email', 'password']
 
-  let errors = {}
+  let errors
   errors.email = Validation.email(values.email)
   errors = Validation.requiredField(requiredFields, values)
 
@@ -53,7 +53,7 @@ const SignInForm = props => {
 }
 
 export default reduxForm({
-  form: 'signin' // a unique identifier for this form
-  validate,
+  form: 'signin', // a unique identifier for this form
+  validate
   // asyncValidate
 })(SignInForm)

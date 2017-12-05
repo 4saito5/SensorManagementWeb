@@ -2,8 +2,8 @@ import {createStore, combineReducers, Action, applyMiddleware} from 'redux'
 import {reducer as reduxFormReducer} from 'redux-form';
 import {routerReducer, routerMiddleware} from 'react-router-redux'
 // モジュールを追加していく場所
-import signin, {SignInActions, SignInState} from './modules/SignIn'
-import signup, {SignUpActions, SignUpState} from './modules/SignUp'
+import signin, {SignInState} from './modules/SignIn'
+import signup, {SignUpState} from './modules/SignUp'
 import home, {HomeActions, HomeState} from './modules/Home'
 
 
