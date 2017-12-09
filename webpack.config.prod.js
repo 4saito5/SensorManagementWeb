@@ -1,14 +1,19 @@
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const webpack = require("webpack"),
+  ExtractTextPlugin = require('extract-text-webpack-plugin'),
+  extractTextPlugin = new ExtractTextPlugin('[name]');
 
 module.exports = {
   // メインとなるJavaScriptファイル（エントリーポイント）
-  entry: './client/index.tsx',
-  // ファイルの出力設定
+  entry: {
+    'bundle.js': './client/index.tsx',
+    'style-pc.css': './client/assets/stylesheets/style-pc.scss',
+    'style-smartphone.css': './client/assets/stylesheets/style-smartphone.scss',
+  },  // ファイルの出力設定
   output: {
     //  出力ファイルのディレクトリ名
     path: `${__dirname}/dist`,
     // 出力ファイル名
-    filename: 'bundle.js'
+    filename: '[name]'
   },
   module: {
     rules: [
@@ -26,12 +31,6 @@ module.exports = {
           use: "css-loader?-url&minimize&sourceMap!sass-loader"
         })
       },
-      // ソースマップファイルの処理
-      {
-        enforce: 'pre',
-        test: /\.js$/,
-        loader: 'source-map-loader'
-      }
     ]
   },
   // import 文で .ts や .tsx ファイルを解決するため
@@ -40,9 +39,17 @@ module.exports = {
       '.ts', '.tsx', '.js', '.json'
     ],
   },
-  // ソースマップを有効にする
-  devtool: 'source-map',
   plugins: [
-    new ExtractTextPlugin("styles.css"),
+    extractTextPlugin,
+    new webpack.optimize.UglifyJsPlugin({
+      compress: {
+        warnings: false
+      }
+    }),
+    new webpack.DefinePlugin({
+      'process.env':{
+        'NODE_ENV': JSON.stringify('production')
+      }
+    })
   ],
 };

@@ -2,11 +2,11 @@
 yarn outdated
 
 ■全削除
-yarn remove history react material-ui react-dom react-redux react-router react-router-dom react-router-redux redux-form redux-form-website-template react-tap-event-plugin @types/react @types/react-dom fuse-box redux tslib typescript uglify-js node-sass concurrently db-migrate db-migrate-mysql
+yarn remove history react material-ui react-dom react-redux react-router react-router-dom react-router-redux@next redux-form redux-form-website-template react-tap-event-plugin @types/react @types/react-dom redux tslib typescript uglify-js node-sass concurrently db-migrate db-migrate-mysql webpack awesome-typescript-loader source-map-loader lite-server node-sass style-loader css-loader sass-loader extract-text-webpack-plugin
 
 ■dependencies
 yarn add history react material-ui react-dom react-redux react-router react-router-dom react-router-redux@next redux-form redux-form-website-template react-tap-event-plugin
 
 ■devDependencies
-yarn add --dev @types/react @types/react-dom fuse-box redux tslib typescript uglify-js node-sass concurrently db-migrate db-migrate-mysql
+yarn add --dev @types/react @types/react-dom redux tslib typescript uglify-js node-sass concurrently db-migrate db-migrate-mysql webpack awesome-typescript-loader source-map-loader lite-server node-sass style-loader css-loader sass-loader extract-text-webpack-plugin
 # uglify-es

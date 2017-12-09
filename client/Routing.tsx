@@ -5,7 +5,8 @@ import createHistory from 'history/createBrowserHistory'
 //import {Values} from 'redux-form-website-template'
 import * as injectTapEventPlugin from 'react-tap-event-plugin'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
-// import './assets/stylesheets/style.scss';
+// import './assets/stylesheets/style-pc.scss';
+// import './assets/stylesheets/style-smartphone.scss';
 // コンテナを追加していく場所
 import { SubmitSignIn } from './modules/SignIn'
 import { SubmitSignUp } from './modules/SignUp'
@@ -22,11 +23,11 @@ export class Routing extends React.Component<{}, {}> {
     return (
       <MuiThemeProvider>
         <Switch>
-          <Route path='/' component={Home} />
+          <Route path='/home' component={Home} />
           <Route path='/signup'>
             <SignUp onSubmit={SubmitSignUp} />
           </Route>
-          <Route path='/signin'>
+          <Route path='/'>
             <SignIn onSubmit={SubmitSignIn} />
           </Route>
         </Switch>

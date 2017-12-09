@@ -1,0 +1,7 @@
+{
+  "port": 3000,
+  "injectChanges": true,
+  "files": ["./dist/*.{html,htm,tag,css,js}"],
+  "watchOptions": { "ignored": "node_modules" },
+  "server": { "baseDir": "./dist" }
+}

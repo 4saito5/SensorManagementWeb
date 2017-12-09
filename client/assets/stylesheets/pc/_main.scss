@@ -1,0 +1,26 @@
+/**
+ * General styles
+ */
+
+body {
+	margin: 0;
+	padding: 0;
+	font-size: 1rem;
+}
+
+//#app {
+form {
+	width: 400px;
+	margin: 24px auto 0 auto;
+//	border: 4px solid #666;
+//	font-family: sans-serif;
+}
+
+.Input {
+	margin: 24px;
+}
+
+form > div > div > div {
+  padding: 0px;
+  border: none;
+}

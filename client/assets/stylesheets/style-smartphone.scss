@@ -1,0 +1,27 @@
+// // External Dependencies
+// @import 'vendor';
+// 
+// // Shared
+// @import 'shared/reset';                        // css reset before the rest of the styles are defined
+// @import 'shared/utils';                        // utilities that are used by all CSS but don't produce any code
+// @import 'shared/animation';                    // all UI animation
+// @import 'shared/forms';                        // form styling
+// @import 'shared/dropdowns';                    // dropdown styling
+// @import 'shared/livechat';                     // styles for the popup livechat box
+// @import 'shared/welcome';                      // welcome messages
+// 
+// Main
+@import 'sp/main';                                // global layout and responsive styles
+// 
+// // Components
+// @import 'components';
+// 
+// // Extensions
+// @import 'extensions/woocommerce/style';
+// @import 'extensions/wp-job-manager/style';
+// @import 'extensions/wp-super-cache/style';
+// @import 'extensions/zoninator/style';
+// 
+// // Devdocs
+// @import 'devdocs/design/style';
+// @import 'devdocs/design/syntax';

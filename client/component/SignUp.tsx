@@ -14,7 +14,7 @@ import {
 const validate = values => {
   const requiredFields = ['name', 'email', 'password', 'repassword']
 
-  let errors
+  let errors: { [key: string]: string; } = {};
   errors.email = Validation.email(values.email)
   errors.repassword =　Validation.repasswordMatch(values.password, values.repassword)
   errors = Validation.requiredField(requiredFields, values)
