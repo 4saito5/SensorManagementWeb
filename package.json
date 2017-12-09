@@ -5,7 +5,9 @@
   "author": "Densan Service Corporation",
   "license": "MIT",
   "scripts": {
-    "build": "concurrently \"webpack --config ./webpack.config.prod.js\" \"go build -o ./server/iot-servd ./server/main.go\"",
+    "build-prod-client": "webpack --config ./webpack.config.prod.js",
+    "build-prod-server": "go build -o ./server/iot-servd ./server/main.go",
+    "build": "concurrently \"yarn run build-prod-client\" \"yarn run build-prod-server\"",
     "build-dev": "webpack --config ./webpack.config.dev.js",
     "watch": "webpack -w  --config ./webpack.config.dev.js",
     "lite": "lite-server",
