@@ -1,13 +1,13 @@
-import {Action} from 'redux'
-import {SubmitSign} from './shared'
-
+import { Action } from 'redux'
+import { SubmitSign } from './shared'
+import { constants } from '../constants'
 
 export async function SubmitSignIn(values) {
   // localStorage.clear()
   localStorage.rememberBrowser = values.rememberBrowser
 
   SubmitSign(
-    'http://localhost:5555/signin',
+    constants.PATH + 'signin',
     values,
   )
 }

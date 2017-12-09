@@ -1,10 +1,11 @@
-import {Action} from 'redux'
-import {SubmitSign} from './shared'
+import { Action } from 'redux'
+import { SubmitSign } from './shared'
+import { constants } from '../constants'
 
 
 export async function SubmitSignUp(values) {
   SubmitSign(
-    'http://localhost:5555/signup',
+    constants.PATH + 'signup',
     values,
   )
 }

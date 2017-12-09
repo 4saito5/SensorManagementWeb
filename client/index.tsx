@@ -1,10 +1,10 @@
 import * as React from 'react'
 import * as ReactDOM from 'react-dom'
-import {Provider} from 'react-redux'
-import {ConnectedRouter} from 'react-router-redux'
-import {store} from './store'
+import { Provider } from 'react-redux'
+import { ConnectedRouter } from 'react-router-redux'
+import { store } from './store'
 //import * as store from './store'
-import {Routing, browserHistory} from "./Routing"
+import { Routing, browserHistory } from "./Routing"
 
 
 

@@ -1,5 +1,5 @@
 // 共用できるものは、ここに置く
-import {browserHistory} from "../Routing"
+import { browserHistory } from "../Routing"
 
 // SignIn,SignUp共用
 export function SubmitSign(url, values) {

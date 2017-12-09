@@ -1,7 +1,6 @@
 import * as React from 'react'
-import {Link} from 'react-router-dom';
-import {Field, reduxForm} from 'redux-form'
-import {browserHistory} from "../Routing"
+import { Link } from 'react-router-dom';
+import { Field, reduxForm } from 'redux-form'
 import Validation from '../modules/Validation'
 import {
   renderTextField,

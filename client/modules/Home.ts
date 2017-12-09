@@ -1,4 +1,5 @@
 import { Action } from 'redux'
+import { constants } from '../constants'
 
 // ActionCreator
 export enum ActionNames {
