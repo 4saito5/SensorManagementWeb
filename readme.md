@@ -12,16 +12,6 @@ Graphs the values measured by sensors such as temperature and humidity.
 yarn install
 ```
 
-Only client build & run
-```bash
-yarn run client
-```
-
-Only server build & run
-```bash
-yarn run server
-```
-
 ### Installing the golang library
 ```bash
 go get -u github.com/labstack/echo
@@ -29,11 +19,16 @@ go get -u github.com/go-sql-driver/mysql
 go get -u github.com/gocraft/dbr
 ```
 
-Client + Server build & run
+Debug (Client + Server build & run)
 ```bash
 yarn run start
 ```
 http://localhost:4444/
+
+Build
+```bash
+yarn run build
+```
 
 Create table
 ```bash

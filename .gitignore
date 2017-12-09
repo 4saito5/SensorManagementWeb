@@ -3,3 +3,4 @@ dist/*.js
 dist/*.css
 dist/*.map
 node_modules/
+server/iot-servd

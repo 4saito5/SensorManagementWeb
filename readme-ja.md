@@ -12,16 +12,6 @@
 yarn install
 ```
 
-クライアントのみビルド＆実行
-```bash
-yarn run client
-```
-
-サーバーのみビルド＆実行
-```bash
-yarn run server
-```
-
 ### golangライブラリのインストール
 ```bash
 go get -u github.com/labstack/echo
@@ -29,15 +19,20 @@ go get -u github.com/go-sql-driver/mysql
 go get -u github.com/gocraft/dbr
 ```
 
-クライアント+サーバービルド＆実行
-```bash
-yarn run start
-```
-http://localhost:4444/
-
 テーブル作成
 ```bash
 yarn run db-create
+```
+
+デバッグ（クライアント+サーバービルド＆実行）
+```bash
+yarn run start
+```
+http://localhost:3000/
+
+ビルド
+```bash
+yarn run build
 ```
 
 DBマイグレーション
