@@ -10,9 +10,9 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 // コンテナを追加していく場所
 import { SubmitSignIn } from './modules/SignIn'
 import { SubmitSignUp } from './modules/SignUp'
-import SignIn from './Containers/SignIn'
-import Home from './Containers/Home'
-import SignUp from './Containers/SignUp'
+import SignIn from './containers/SignIn'
+import Home from './containers/Home'
+import SignUp from './containers/SignUp'
 
 injectTapEventPlugin()
 
