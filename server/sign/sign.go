@@ -22,7 +22,7 @@ type (
 var (
 	tablename = "m_users"
 	seq       = 1
-	conn, _   = dbr.Open("mysql", "root:@tcp(127.0.0.1:3306)/smw", nil)
+	conn, _   = dbr.Open("mysql", "iot:@tcp(127.0.0.1:3306)/smw", nil)
 	sess      = conn.NewSession(nil)
 )
 
