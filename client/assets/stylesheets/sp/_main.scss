@@ -10,7 +10,7 @@ body {
 
 //#app {
 form {
-	width: 400px;
+	width: 100%;
 	margin: 24px auto 0 auto;
 //	border: 4px solid #666;
 //	font-family: sans-serif;
@@ -24,4 +24,8 @@ form {
 form > div > div > div {
   padding: 0px;
   border: none;
+}
+
+h2 {
+	font-size: 3rem;
 }
