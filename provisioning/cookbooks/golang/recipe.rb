@@ -8,7 +8,7 @@ remote_file ".bash_profile" do
 end
 
 # ファイル転送
-remote_file "dl_package.sh" do
+remote_file "./dl_package.sh" do
   mode "775"
   source "./files/dl_package.sh"
 end
