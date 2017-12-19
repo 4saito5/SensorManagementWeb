@@ -10,7 +10,7 @@ end
 # ファイル転送
 remote_file "dl_package.sh" do
   mode "775"
-  source "dl_package.sh"
+  source "./files/dl_package.sh"
 end
 
 execute ".dl_package.sh" do
