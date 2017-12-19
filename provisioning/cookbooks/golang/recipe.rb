@@ -7,6 +7,11 @@ remote_file "~/.bash_profile" do
   source "./files/.bash_profile"
 end
 
+# 環境変数セット
+execute "source ~/.bash_profile" do
+  command "source ~/.bash_profile"
+end
+
 # golangパッケージのダウンロード
 execute "go get github.com/labstack/echo" do
   command "go get github.com/labstack/echo"
