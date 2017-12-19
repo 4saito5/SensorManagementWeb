@@ -8,8 +8,8 @@ remote_file ".bash_profile" do
 end
 
 # 環境変数セット
-execute ". .bash_profile" do
-  command ". .bash_profile"
+execute ".bash_profile" do
+  command ".bash_profile"
 end
 
 # golangパッケージのダウンロード
