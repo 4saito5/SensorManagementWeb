@@ -3,13 +3,13 @@
 package "golang-go"
 
 # ファイル転送
-remote_file "~/.bash_profile" do
+remote_file "/home/iot/.bash_profile" do
   source "./files/.bash_profile"
 end
 
 # 環境変数セット
-execute "source ~/.bash_profile" do
-  command "source ~/.bash_profile"
+execute "source /home/iot/.bash_profile" do
+  command "source /home/iot/.bash_profile"
 end
 
 # golangパッケージのダウンロード
