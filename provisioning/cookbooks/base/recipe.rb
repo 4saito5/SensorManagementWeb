@@ -2,7 +2,8 @@
 
 # timezoneの設定
 execute 'set timezone' do
-  command 'timedatectl set-timezone Asia/Tokyo'
+#  command 'timedatectl set-timezone Asia/Tokyo'
+  command 'ln -sf /usr/share/zoneinfo/Asia/Tokyo /etc/localtime'
 end
 
 package "curl"
