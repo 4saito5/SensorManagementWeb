@@ -3,7 +3,7 @@
 package "dirmngr"
 package "software-properties-common"
 
-execute "add-apt-repository -y ppa:gophers/archive" do
+execute "add repository golang" do
 #  command "add-apt-repository -y ppa:gophers/archive"
   command "add-apt-repository -y ppa:longsleep/golang-backports"
 end
