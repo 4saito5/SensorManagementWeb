@@ -9,6 +9,8 @@ include_recipe "../cookbooks/mariadb/recipe.rb"
 # golangのインストール
 include_recipe "../cookbooks/golang/recipe.rb"
 
-# golangのインストール
+# nginxのインストール
 include_recipe "../cookbooks/nginx/recipe.rb"
 
+# IoT：クライアント・サーバーアプリのデプロイ＆サービス化
+include_recipe "../cookbooks/iot-servd/recipe.rb"
