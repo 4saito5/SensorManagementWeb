@@ -1,0 +1,10 @@
+[Unit]
+Description = IoT server daemon
+
+[Service]
+ExecStart = /opt/iot-servd
+Restart = always
+Type = simple
+
+[Install]
+WantedBy = multi-user.target

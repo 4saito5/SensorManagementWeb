@@ -29,17 +29,22 @@ package "golang-go"
 
 # golangパッケージのダウンロード
 execute "go get github.com/labstack/echo" do
+  user "iot"
   command "go get github.com/labstack/echo"
 end
 execute "go get github.com/dgrijalva/jwt-go" do
+  user "iot"
   command "go get github.com/dgrijalva/jwt-go"
 end
 execute "go get github.com/go-sql-driver/mysql" do
+  user "iot"
   command "go get github.com/go-sql-driver/mysql"
 end
 execute "go get github.com/gocraft/dbr" do
+  user "iot"
   command "go get github.com/gocraft/dbr"
 end
 execute "go get github.com/pkg/errors" do
+  user "iot"
   command "go get github.com/pkg/errors"
 end
