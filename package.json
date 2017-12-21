@@ -5,7 +5,7 @@
   "author": "Densan Service Corporation",
   "license": "MIT",
   "scripts": {
-    "build-prod-client": "sed -i \"s/localhost/`curl inet-ip.info\/ip`/\" ./client/constants.ts;;webpack --config ./webpack.config.prod.js",
+    "build-prod-client": "sed -i \"s/localhost/`curl inet-ip.info\/ip`/\" ./client/constants.ts & webpack --config ./webpack.config.prod.js",
     "build-prod-server": "go build -o ./server/iot-servd ./server/main.go",
     "build": "yarn run build-prod-client && yarn run build-prod-server",
     "build-dev-client": "webpack --config ./webpack.config.dev.js",
