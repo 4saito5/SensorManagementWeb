@@ -1,10 +1,10 @@
 ### IoTサーバーの構築
 
 # 基本的な設定やパッケージのインストール
-require '../cookbooks/base/recipe.rb'
+include_recipe "./cookbooks/base/recipe.rb"
 
 # golangのインストール
-require '../cookbooks/golang/recipe.rb'
+include_recipe "./cookbooks/golang/recipe.rb"
 
 # MariaDBのインストール
-require '../cookbooks/MariaDB/recipe.rb'
+include_recipe "./cookbooks/MariaDB/recipe.rb"
