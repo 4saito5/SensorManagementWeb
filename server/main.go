@@ -23,7 +23,7 @@ func main() {
 	e.POST("/signin", sign.SignIn)
 	e.POST("/signup", sign.SignUp)
 	e.POST("/getPort", getPort.getPort)
-	e.POST("/setPort", setPort.setPort)
+	//e.POST("/setPort", setPort.setPort)
 
 	// サーバー起動
 	e.Start(":5555")
