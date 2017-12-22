@@ -28,7 +28,7 @@ func getPort(c echo.Context) error {
 	port := new(portInfo)
 
 	//ポートエラーを拾う
-	if err := c.Bind(arud); err != nil {
+	if err := c.Bind(port); err != nil {
 		return err
 	}
 
