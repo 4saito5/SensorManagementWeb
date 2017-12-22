@@ -36,12 +36,7 @@ func setPort(c echo.Context) error {
 	sess.Update(tablename).
 		//SetMap("value = ?",port.value).	//おいおい引数の設定値で更新する
 		SetMap("value = 10").
-		Where(
-					"serial_no = ? AND
-					 port_no = ?"
-					,port.serial_no
-					,port.port_no
-				).
+		Where("serial_no = ? AND port_no = ?", port.serial_no, port.port_no).
 		Exec()
 	return c.JSON(http.StatusOK)
 }
