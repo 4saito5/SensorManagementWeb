@@ -20,7 +20,7 @@ func main() {
 	// ルーティング
 	e.POST("/signin", sign.SignIn)
 	e.POST("/signup", sign.SignUp)
-	e.POST("/getPort", getPort.getport)
+	e.POST("/getPort", getPort.GetPort)
 
 	// サーバー起動
 	e.Start(":5555")
