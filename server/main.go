@@ -2,7 +2,7 @@ package main
 
 import (
 	"./sign"
-	"./getport"
+	"./getPort"
 	"github.com/labstack/echo"
 	"github.com/labstack/echo/middleware"
 )
@@ -20,7 +20,7 @@ func main() {
 	// ルーティング
 	e.POST("/signin", sign.SignIn)
 	e.POST("/signup", sign.SignUp)
-	e.POST("/getport", getPort.getPort)
+	e.POST("/getPort", getPort.getPort)
 
 	// サーバー起動
 	e.Start(":5555")
