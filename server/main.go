@@ -2,6 +2,8 @@ package main
 
 import (
 	"./sign"
+	"./getPort"
+	"./setPort"
 	"github.com/labstack/echo"
 	"github.com/labstack/echo/middleware"
 )
@@ -15,6 +17,7 @@ func main() {
 	e.Use(middleware.Recover())
 	e.Use(middleware.CORS())
 	// e.Use(middleware.Gzip())
+
 
 	// ルーティング
 	e.POST("/signin", sign.SignIn)
