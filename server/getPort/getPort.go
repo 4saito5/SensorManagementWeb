@@ -24,7 +24,7 @@ var (
 )
 
 //ポート情報取得
-func getPort(c echo.Context) error {
+func getport(c echo.Context) error {
 	port := new(portInfo)
 
 	//ポートエラーを拾う
