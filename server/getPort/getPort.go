@@ -1,6 +1,6 @@
 package getPort
 
-imarud (
+import (
 	"net/http"
 
 	_ "github.com/go-sql-driver/mysql"
