@@ -3,7 +3,8 @@
 # IoTソースの取得
 execute "git clone" do
   user "iot"
-  command "git clone -b develop https://github.com/4saito5/sensor-management-web.git"
+  # command "git clone -b develop https://github.com/4saito5/sensor-management-web.git"
+  command "git clone https://github.com/4saito5/sensor-management-web.git"
 end
 
 # 開発環境構築
