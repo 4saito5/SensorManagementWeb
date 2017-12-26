@@ -50,6 +50,7 @@ SensorManagementWeb
 │  ├─containers
 │  └─modules
 ├─db
+├─provisioning
 └─server
     ├─REST API
     ├─...
