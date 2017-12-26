@@ -21,18 +21,18 @@ function setPort(HomeState, action) {
   // console.log('value=', action)
   // TODO:serial_noの取得
   const bodyText = {
-    serial_no: "test001",
+    serial_no: 'test001',
     port_no: action.portNumber,
     value: action.value
   }  
   // console.log('bodyText=', bodyText)
-  
+
+  let myHeaders:Headers = new Headers();
+  myHeaders.append('Accept', 'application/json');
+  myHeaders.append('Content-Type', 'application/json');
+
   fetch(constants.PATH + 'setport', {
-    headers: {
-      'Accept': 'application/json',
-      'Content-Type': 'application/json',
-    },
-    // credentials: 'same-origin',
+    headers: myHeaders,
     method: 'POST',
     body: JSON.stringify(bodyText)
   }).then((response) => {

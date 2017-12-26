@@ -6,11 +6,12 @@ export function SubmitSign(url, values) {
   // console.log(`You submitted:\n\n${JSON.stringify(values, null, 2)}`)
   sessionStorage.clear()
   
+  let myHeaders:Headers = new Headers();
+  myHeaders.append('Accept', 'application/json');
+  myHeaders.append('Content-Type', 'application/json');
+
   fetch(url, {
-    headers: {
-      'Accept': 'application/json',
-      'Content-Type': 'application/json',
-    },
+    headers: myHeaders,
     // credentials: 'same-origin',
     method: 'POST',
     body: JSON.stringify(values)
