@@ -3,70 +3,70 @@ import { constants } from '../constants'
 
 // ActionCreator
 export enum ActionNames {
-  PORT_OPEN = 'home/portOpen',
-  PORT_CLOSE = 'home/portClose',
+  PORT_OPEN = 'home/setPort',
 }
 
-// PortOpen
-export interface PortOpenAction extends Action {
+// setPort
+export interface setPortAction extends Action {
   type: ActionNames.PORT_OPEN
-  portNumberAmount: number
+  portNumber: number
+  value: string
 }
-export const portOpenAmount = (amount: number): PortOpenAction => ({
+export const setPortAmount = (portNum, value): setPortAction => ({
   type: ActionNames.PORT_OPEN,
-  portNumberAmount: amount
+  portNumber: portNum,
+  value: value
 })
-function updateItemInArray(array, itemId, updateItemCallback) {
-  const updatedItems = array.map(item => {
-    if (item.id !== itemId) {
-      // Since we only want to update one item, preserve all others as they are now
-      return item;
-    }
+function setPort(HomeState, action) {
+  // console.log('value=', action)
+  // TODO:serial_noの取得
+  const bodyText = {
+    serial_no: "test001",
+    port_no: action.portNumber,
+    value: action.value
+  }  
+  // console.log('bodyText=', bodyText)
+  
+  fetch(constants.PATH + 'setport', {
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json',
+    },
+    // credentials: 'same-origin',
+    method: 'POST',
+    body: JSON.stringify(bodyText)
+  }).then((response) => {
+      console.log('Response OK.')
+      return response.json()
+    }).then((json)  => {
+      console.log(json)
+      // if (json.name) {
+      // }
+      // else
+      //   alert('サーバーエラーが発生しました')
+    }).catch(() => {
+      console.log('Response Error.')
+      alert('通信に失敗しました')
+  })
 
-    // Use the provided callback to create an updated item
-    const updatedItem = updateItemCallback(item);
-    return updatedItem;
-  });
-
-  return updatedItems;
+  return HomeState;
 }
-function updateObject(oldObject, newValues) { }
-function test(HomeState, action) {
-  console.log('value=', action)
-  const newTodos = updateItemInArray(HomeState, action.id, todo => {
-    return updateObject(todo, { text: action.text });
-  });
-
-  return newTodos;
-}
-
-
-// PortClose
-export interface PortCloseAction extends Action {
-  type: ActionNames.PORT_CLOSE
-  portNumberAmount: number
-}
-export const portCloseAmount = (amount: number): PortCloseAction => ({
-  type: ActionNames.PORT_CLOSE,
-  portNumberAmount: amount
-})
 
 
 // Reducer
 export interface HomeState {
-  num: number
+  portNum: number
+  value: string
 }
 
-export type HomeActions = PortOpenAction | PortCloseAction
+export type HomeActions = setPortAction
 
-const initialState: HomeState = { num: 0 }
+const initialState: HomeState = { portNum: 0, value: "off" }
 
 export default function reducer(state: HomeState = initialState, action: HomeActions): HomeState {
   switch (action.type) {
     case ActionNames.PORT_OPEN:
-      return test(state, action)
-    case ActionNames.PORT_CLOSE:
-      return test(state, action)
+      return setPort(state, action)
     default:
       return state
   }

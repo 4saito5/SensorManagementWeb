@@ -7,14 +7,14 @@ const HomeForm = props => {
     <form>
       <h3>電磁弁の操作</h3>
       <div>
-        <button type="button" onClick={() => props.actions.portOpen(1)}>開ける</button>
-        <button type="button" onClick={() => props.actions.portClose(1)}>閉める</button>
+        <button type="button" onClick={() => props.actions.setPort(1, 'on')}>開ける</button>
+        <button type="button" onClick={() => props.actions.setPort(1, 'off')}>閉める</button>
       </div>
 
       <h3>ポート2の操作</h3>
       <div>
-        <button type="button" onClick={() => props.actions.portOpen(2)}>　On　</button>
-        <button type="button" onClick={() => props.actions.portClose(2)}>　Off　</button>
+        <button type="button" onClick={() => props.actions.setPort(2, 'on')}>　On　</button>
+        <button type="button" onClick={() => props.actions.setPort(2, 'off')}>　Off　</button>
       </div>
 
       <hr />
