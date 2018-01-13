@@ -11,9 +11,9 @@ import (
 //ポート情報
 type (
 	portInfo struct {
-		serial_no    string `db:"serial_no" json:"serial_no"`	//シリアルNo(引数)
-		port_no    	 int `db:"port_no" json:"port_no"`				//ポート番号(引数)
-		value    		 string `db:"value" json:"value"`					//設定値(引数)
+		Serial_no    string `db:"serial_no" json:"serial_no"`	//シリアルNo(引数)
+		Port_no    	 int `db:"port_no" json:"port_no"`				//ポート番号(引数)
+		Value    		 string `db:"value" json:"value"`					//設定値(引数)
 	}
 )
 
@@ -34,10 +34,10 @@ func SetPort(c echo.Context) error {
 
 	//接続ポートテーブルのupdateSQLを発行する
 	//attrsMap := map[string]interface{}{"value": port.value}//おいおい引数の設定値で更新する
-	//Where("serial_no = ? AND port_no = ?", port.serial_no, port.port_no).
 	attrsMap := map[string]interface{}{"value": "on"}
 	sess.Update(tablename).
 		SetMap(attrsMap).
+		Where("serial_no = ? AND port_no = ?", port.Serial_no, port.Port_no).
 		Exec()
-	return c.JSON(http.StatusOK,"あっぷでーと")
+	return c.JSON(http.StatusOK,tablename)
 }

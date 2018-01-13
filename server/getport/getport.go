@@ -11,9 +11,9 @@ import (
 //ポート情報
 type (
 	portInfo struct {
-		serial_no    string `db:"serial_no" json:"serial_no"`	//シリアルNo(引数)
-		port_no    	 int `db:"port_no" json:"port_no"`				//ポート番号(引数)
-		value    		 string `db:"value" json:"value"`					//設定値(戻り値)
+		Serial_no    string `db:"serial_no" json:"serial_no"`	//シリアルNo(引数)
+		Port_no    	 int `db:"port_no" json:"port_no"`				//ポート番号(引数)
+		Value    		 string `db:"value" json:"value"`					//設定値(戻り値)
 	}
 )
 
@@ -35,7 +35,7 @@ func GetPort(c echo.Context) error {
 	//接続ポートテーブルのselectSQLを発行する
 	sess.Select("value").
 		From(tablename).
-		Where("serial_no = ? AND port_no = ?", port.serial_no, port.port_no).
-		Load(&port.value)
-	return c.JSON(http.StatusOK, "port.value")
+		Where("serial_no = ? AND port_no = ?", port.Serial_no, port.Port_no).
+		Load(&port.Value)
+	return c.JSON(http.StatusOK, "port.Value")
 }
