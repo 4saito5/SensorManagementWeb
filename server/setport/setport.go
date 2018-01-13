@@ -34,10 +34,10 @@ func SetPort(c echo.Context) error {
 
 	//接続ポートテーブルのupdateSQLを発行する
 	//attrsMap := map[string]interface{}{"value": port.value}//おいおい引数の設定値で更新する
-	attrsMap := map[string]interface{}{"value": "10"}
+	//Where("serial_no = ? AND port_no = ?", port.serial_no, port.port_no).
+	attrsMap := map[string]interface{}{"value": "on"}
 	sess.Update(tablename).
 		SetMap(attrsMap).
-		Where("serial_no = ? AND port_no = ?", port.serial_no, port.port_no).
 		Exec()
 	return c.JSON(http.StatusOK,"あっぷでーと")
 }
