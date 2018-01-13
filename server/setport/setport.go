@@ -40,11 +40,6 @@ func SetPort(c echo.Context) error {
 	// 	Set("value", "on").
 	// 	Where("port_no = 1").
 	// 	Exec()
-  db.Exec(`
-		UPDATE t_port
-		SET value = "on"
-		WHERE port_no = 1
-	 `,
-)
+  db.Exec(`UPDATE t_port SET value = "on" WHERE port_no = 1 `)
 	return c.JSON(http.StatusOK , "あっぷでーと")
 }
