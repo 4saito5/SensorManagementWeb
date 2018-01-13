@@ -37,9 +37,9 @@ func GetPort(c echo.Context) error {
 	// 	From(tablename).
 	// 	Where("serial_no = ? AND port_no = ?", port.Serial_no, port.Port_no).
 	// 	Load(&port.Value)
-	rows, _ = conn.Query(`
+	conn.Query("
 		SELECT value
-		FROM t_port`
+		FROM t_port"
 	)
 	return c.JSON(http.StatusOK, port.Value)
 }
