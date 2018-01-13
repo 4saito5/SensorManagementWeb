@@ -45,5 +45,8 @@ func GetPort(c echo.Context) error {
 		port.Serial_no ,
 		port.Port_no ,
 	)
-	return c.JSON(http.StatusOK, rows)
+	
+  rows.Scan(&port.Value)
+
+	return c.JSON(http.StatusOK, port.Value)
 }
