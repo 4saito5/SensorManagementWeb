@@ -11,9 +11,9 @@ import (
 //ポート情報
 type (
 	portInfo struct {
-		serial_no    string `db:"serial_no" json:"serial_no"`	//シリアルNo(引数)
-		port_no    	 int `db:"port_no" json:"port_no"`				//ポート番号(引数)
-		value    		 string `db:"value" json:"value"`					//設定値(引数)
+		Serial_no    string `db:"serial_no" json:"serial_no"`	//シリアルNo(引数)
+		Port_no    	 int `db:"port_no" json:"port_no"`				//ポート番号(引数)
+		Value    		 string `db:"value" json:"value"`					//設定値(引数)
 	}
 )
 
