@@ -23,7 +23,6 @@ function setPort(HomeState, action) {
   const bodyText = {
     serial_no: 'test001',
     port_no: action.portNumber,
-    value: action.value
   }  
   console.log('bodyText=', bodyText)
 
