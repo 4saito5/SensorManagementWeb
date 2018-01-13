@@ -25,17 +25,17 @@ var (
 
 //ポート情報取得
 func GetPort(c echo.Context) error {
-	//port := new(portInfo)
+	port := new(portInfo)
 
 	//ポートエラーを拾う
-	if err := c.Bind(portInfo); err != nil {
+	if err := c.Bind(port); err != nil {
 		return err
 	}
 
 	//接続ポートテーブルのselectSQLを発行する
 	sess.Select("value").
 		From(tablename).
-		Where("serial_no = ? AND port_no = ?", portInfo.serial_no, portInfo.port_no).
-		Load(&portInfo.value)
-	return c.JSON(http.StatusOK, portInfo.value)
+		Where("serial_no = ? AND port_no = ?", port.serial_no, port.port_no).
+		Load(&port.value)
+	return c.JSON(http.StatusOK, "port.value")
 }
