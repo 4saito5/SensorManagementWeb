@@ -36,9 +36,15 @@ func SetPort(c echo.Context) error {
 	//attrsMap := map[string]interface{}{"value": port.Value}//おいおい引数の設定値で更新する
 	//attrsMap := map[string]interface{}{"value": "on"}
 	// Where("serial_no = ?", port.Serial_no).
-	sess.Update("t_port").
-		Set("value", "on").
-		Where("port_no = 1").
-		Exec()
+	// sess.Update("t_port").
+	// 	Set("value", "on").
+	// 	Where("port_no = 1").
+	// 	Exec()
+  db.Exec(`
+		UPDATE t_port
+		SET value = "on"
+		WHERE port_no = 1
+	 `,
+)
 	return c.JSON(http.StatusOK , "あっぷでーと")
 }
