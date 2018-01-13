@@ -25,7 +25,7 @@ function setPort(HomeState, action) {
     port_no: action.portNumber,
     value: action.value
   }  
-  // console.log('bodyText=', bodyText)
+  console.log('bodyText=', bodyText)
 
   let myHeaders:Headers = new Headers();
   myHeaders.append('Accept', 'application/json');
