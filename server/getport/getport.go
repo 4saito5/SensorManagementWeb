@@ -37,11 +37,13 @@ func GetPort(c echo.Context) error {
 	// 	From(tablename).
 	// 	Where("serial_no = ? AND port_no = ?", port.Serial_no, port.Port_no).
 	// 	Load(&port.Value)
-	rows, err := conn.Query(`
-		SELECT value
-		FROM t_port
-		WHERE serial_no = ?
-		  AND port_no = ?` ,
+	query := "
+	SELECT value
+	FROM t_port
+	WHERE serial_no = ?
+		AND port_no = ?"
+
+	rows, _ := conn.Query(query ,
 		port.Serial_no ,
 		port.Port_no ,
 	)
