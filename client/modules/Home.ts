@@ -31,7 +31,7 @@ function setPort(HomeState, action) {
   myHeaders.append('Accept', 'application/json');
   myHeaders.append('Content-Type', 'application/json');
 
-  fetch(constants.PATH + 'setport', {
+  fetch(constants.PATH + 'getport', {
     headers: myHeaders,
     method: 'POST',
     body: JSON.stringify(bodyText)
