@@ -1,8 +1,8 @@
 package getport
 
 import (
+	"../common"
 	"net/http"
-
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/gocraft/dbr"
 	"github.com/labstack/echo"
@@ -19,8 +19,7 @@ type (
 
 var (
 	tablename = "t_port"	//接続ポートテーブル
-	conn, _   = dbr.Open("mysql", "iot:@tcp(127.0.0.1:3306)/smw", nil)
-	sess      = conn.NewSession(nil)
+	conn, sess	= common.DbrConnection()
 )
 
 //ポート情報取得
@@ -37,16 +36,6 @@ func GetPort(c echo.Context) error {
 		From(tablename).
 		Where("serial_no = ? AND port_no = ?", port.Serial_no, port.Port_no).
 		Load(&port.Value)
-	// rows, _ := conn.Query(`
-	// 	SELECT value
-	// 	FROM t_port
-	// 	WHERE serial_no = ?
-	// 	  AND port_no = ?` ,
-	// 	port.Serial_no ,
-	// 	port.Port_no ,
-	// )
-  //
-  // rows.Scan(&port.Value)
 
 	return c.JSON(http.StatusOK, port.Value)
 }

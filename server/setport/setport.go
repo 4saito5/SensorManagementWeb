@@ -1,8 +1,8 @@
 package setport
 
 import (
+	"../common"
 	"net/http"
-
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/gocraft/dbr"
 	"github.com/labstack/echo"
@@ -19,8 +19,7 @@ type (
 
 var (
 	tablename = "t_port"	//接続ポートテーブル
-	conn, _   = dbr.Open("mysql", "iot:@tcp(127.0.0.1:3306)/smw", nil)
-	sess      = conn.NewSession(nil)
+	conn, sess	= common.DbrConnection()
 )
 
 //ポート情報更新
