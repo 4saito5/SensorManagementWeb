@@ -33,13 +33,12 @@ func SetPort(c echo.Context) error {
 	}
 
 	//接続ポートテーブルのupdateSQLを発行する
-	//attrsMap := map[string]interface{}{"value": port.Value}//おいおい引数の設定値で更新する
-	//attrsMap := map[string]interface{}{"value": "on"}
-	// Where("serial_no = ?", port.Serial_no).
-	// sess.Update("t_port").
-	// 	Set("value", "on").
-	// 	Where("port_no = 1").
-	// 	Exec()
-  conn.Exec(`UPDATE t_port SET value = "on" WHERE port_no = 1 `)
+  conn.Exec(`
+		UPDATE t_port
+		SET value = "on"
+		WHERE serial_no = ? , port_no = ?` ,
+		port.Serial_no ,
+		port.Port_no
+	)
 	return c.JSON(http.StatusOK , "あっぷでーと")
 }
