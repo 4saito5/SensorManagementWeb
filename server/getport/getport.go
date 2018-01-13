@@ -1,4 +1,4 @@
-package getPort
+package getport
 
 import (
 	"net/http"
