@@ -36,8 +36,9 @@ func SetPort(c echo.Context) error {
   conn.Exec(`
 		UPDATE t_port
 		SET value = "on"
-		WHERE
-		      port_no = ?` ,
+		WHERE serial_no = ? ,
+		  AND port_no = ?` ,
+		port.Serial_no ,
 		port.Port_no ,
 	)
 	return c.JSON(http.StatusOK , "あっぷでーと")
