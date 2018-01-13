@@ -39,5 +39,5 @@ func SetPort(c echo.Context) error {
 		SetMap(attrsMap).
 		Where("serial_no = ? AND port_no = ?", port.Serial_no, port.Port_no).
 		Exec()
-	return c.JSON(http.StatusOK,port.Serial_no)
+	return c.JSON(http.StatusOK,tablename)
 }
