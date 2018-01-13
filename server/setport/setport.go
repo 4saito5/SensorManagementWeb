@@ -37,7 +37,7 @@ func SetPort(c echo.Context) error {
 	//attrsMap := map[string]interface{}{"value": "on"}
 	sess.Update("t_port").
 		Set("value", "on").
-		Where("serial_no = ? ", "test001").
+		Where("serial_no = ?", port.Serial_no).
 		Exec()
 	return c.JSON(http.StatusOK,"あっぷでーと")
 }
