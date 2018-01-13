@@ -38,7 +38,7 @@ func SetPort(c echo.Context) error {
 		SET value = "on"
 		WHERE serial_no = ? , port_no = ?` ,
 		port.Serial_no ,
-		port.Port_no
+		port.Port_no ,
 	)
 	return c.JSON(http.StatusOK , "あっぷでーと")
 }
