@@ -31,6 +31,7 @@ func SetPort(c echo.Context) error {
 	if err := c.Bind(port); err != nil {
 		return err
 	}
+	
 
 	//接続ポートテーブルのupdateSQLを発行する
 	//attrsMap := map[string]interface{}{"value": port.Value}//おいおい引数の設定値で更新する
