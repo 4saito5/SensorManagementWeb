@@ -3,6 +3,7 @@ package main
 import (
 	"./sign"
 	"./getPort"
+	"./setPort"
 	"github.com/labstack/echo"
 	"github.com/labstack/echo/middleware"
 )
@@ -21,6 +22,7 @@ func main() {
 	e.POST("/signin", sign.SignIn)
 	e.POST("/signup", sign.SignUp)
 	e.POST("/getport", getPort.GetPort)
+	e.POST("/setport", setPort.SetPort)
 
 	// サーバー起動
 	e.Start(":5555")
