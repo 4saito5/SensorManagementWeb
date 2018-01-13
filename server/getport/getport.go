@@ -44,6 +44,6 @@ func GetPort(c echo.Context) error {
 		  AND port_no = ?` ,
 		port.Serial_no ,
 		port.Port_no ,
-	)
+	).Load(&port.Value)
 	return c.JSON(http.StatusOK, port.Value)
 }
