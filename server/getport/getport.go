@@ -33,9 +33,17 @@ func GetPort(c echo.Context) error {
 	}
 
 	//接続ポートテーブルのselectSQLを発行する
-	sess.Select("value").
-		From(tablename).
-		Where("serial_no = ? AND port_no = ?", port.Serial_no, port.Port_no).
-		Load(&port.Value)
-	return c.JSON(http.StatusOK, port.Value)
+	// sess.Select("value").
+	// 	From(tablename).
+	// 	Where("serial_no = ? AND port_no = ?", port.Serial_no, port.Port_no).
+	// 	Load(&port.Value)
+	rows = conn.Query(`
+		SELECT value
+		FROM t_port
+		WHERE serial_no = ?
+		  AND port_no = ?` ,
+		port.Serial_no ,
+		port.Port_no ,
+	)
+	return c.JSON(http.StatusOK, rows)
 }
