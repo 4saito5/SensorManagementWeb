@@ -23,14 +23,15 @@ function setPort(HomeState, action) {
   const bodyText = {
     serial_no: 'test001',
     port_no: action.portNumber,
+    value: action.value
   }  
-  console.log('bodyText=', bodyText)
+  console.log('Post JSON=', bodyText)
 
   let myHeaders:Headers = new Headers();
   myHeaders.append('Accept', 'application/json');
   myHeaders.append('Content-Type', 'application/json');
 
-  fetch(constants.PATH + 'getport', {
+  fetch(constants.PATH + 'setport', {
     headers: myHeaders,
     method: 'POST',
     body: JSON.stringify(bodyText)
