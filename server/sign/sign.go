@@ -1,10 +1,11 @@
 package sign
 
 import (
+	"../common"
 	"net/http"
 
 	_ "github.com/go-sql-driver/mysql"
-	"github.com/gocraft/dbr"
+	// "github.com/gocraft/dbr"
 	"github.com/labstack/echo"
 	// "html"
 	// "strconv"
@@ -21,9 +22,7 @@ type (
 
 var (
 	tablename = "m_users"
-	seq       = 1
-	conn, _   = dbr.Open("mysql", "iot:@tcp(127.0.0.1:3306)/smw", nil)
-	sess      = conn.NewSession(nil)
+	conn, sess	= common.DbrConnection()
 )
 
 func SignIn(c echo.Context) error {
