@@ -6,6 +6,7 @@ import (
 	_ "github.com/go-sql-driver/mysql"
 	//"github.com/gocraft/dbr"
 	"github.com/labstack/echo"
+	"fmt"
 )
 
 //ポート情報
@@ -32,13 +33,23 @@ func SetPort(c echo.Context) error {
 	}
 
 	//接続ポートテーブルのupdateSQLを発行する
-  conn.Exec(`
+	conn.Exec("
 		UPDATE t_port
-		SET value = "on"
-		WHERE serial_no = ?
-		  AND port_no = ?` ,
+		SET value = '?'
+		WHERE serial_no = '?'
+		  AND port_no = ?" ,
+		port.value
 		port.Serial_no ,
 		port.Port_no ,
 	)
+
+
+	condition := dbr.AndMap{"serial_no": port.Serial_no, "name": port.Port_no}
+	fmt.Println(condition)
+	// result, err := sess.Update("t_port").
+	// 	Set("value", port.value).
+	// 	Record(user).
+	// 	Exec()
+		
 	return c.JSON(http.StatusOK , "あっぷでーと")
 }
