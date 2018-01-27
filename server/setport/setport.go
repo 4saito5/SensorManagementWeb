@@ -13,8 +13,8 @@ import (
 type (
 	portInfo struct {
 		Serial_no    string `db:"serial_no" json:"serial_no"`	//シリアルNo(引数)
-		Port_no    	 int `db:"port_no" json:"port_no"`				//ポート番号(引数)
-		Value    		 string `db:"value" json:"value"`					//設定値(引数)
+		Port_no    	 int `db:"port_no" json:"port_no"`			//ポート番号(引数)
+		Value    	 string `db:"value" json:"value"`			//設定値(引数)
 	}
 )
 
@@ -37,10 +37,10 @@ func SetPort(c echo.Context) error {
 		UPDATE t_port
 		SET value = '?'
 		WHERE serial_no = '?'
-		  AND port_no = ?` ,
-		port.Value
-		port.Serial_no ,
-		port.Port_no ,
+		  AND port_no = ?`,
+		port.Value,
+		port.Serial_no,
+		port.Port_no,
 	)
 
 
