@@ -5,6 +5,7 @@ import (
 	"net/http"
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/gocraft/dbr"
+	"github.com/gocraft/dbr/dialect"
 	"github.com/labstack/echo"
 	"fmt"
 )
