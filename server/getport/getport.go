@@ -6,7 +6,7 @@ import (
 	_ "github.com/go-sql-driver/mysql"
 	//"github.com/gocraft/dbr"
 	"github.com/labstack/echo"
-	"fmt"
+	// "fmt"
 )
 
 //ポート情報
@@ -31,8 +31,8 @@ func GetPort(c echo.Context) error {
 	if err := c.Bind(port); err != nil {
 		return err
 	}
-	fmt.Println("Serial_no=", port.Serial_no)
-	fmt.Println("Port_no=", port.Port_no)
+	// fmt.Println("Serial_no=", port.Serial_no)
+	// fmt.Println("Port_no=", port.Port_no)
 
 	//接続ポートテーブルのselectSQLを発行する
 	_, err := sess.Select("value").
@@ -43,8 +43,7 @@ func GetPort(c echo.Context) error {
 		// fmt.Println("error:", err)
 		return err
 	}
-	fmt.Println("Value=", port.Value)
+	// fmt.Println("Value=", port.Value)
 
-	// return c.JSON(http.StatusOK, port.Value)
-	return c.JSON(http.StatusOK, "\"on")
+	return c.JSON(http.StatusOK, port.Value)
 }
