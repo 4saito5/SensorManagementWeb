@@ -47,5 +47,5 @@ func SetPort(c echo.Context) error {
 	}
 
 	result := `{"result": true}`
-	return c.JSON(http.StatusOK , "result")
+	return c.JSON(http.StatusOK , result)
 }
