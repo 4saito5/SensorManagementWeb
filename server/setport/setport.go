@@ -33,20 +33,20 @@ func SetPort(c echo.Context) error {
 	}
 
 	//接続ポートテーブルのupdateSQLを発行する
-	conn.Exec("
+	conn.Exec(`
 		UPDATE t_port
 		SET value = '?'
 		WHERE serial_no = '?'
-		  AND port_no = ?" ,
+		  AND port_no = ?` ,
 		port.value
 		port.Serial_no ,
 		port.Port_no ,
 	)
 
 
-	// condition := dbr.AndMap{"serial_no": port.Serial_no, "name": port.Port_no}
-	// fmt.Println(condition)
-	fmt.Println("テスト")
+	condition := dbr.AndMap{"serial_no": port.Serial_no, "name": port.Port_no}
+	fmt.Println(condition)
+	// fmt.Println("テスト")
 	// result, err := sess.Update("t_port").
 	// 	Set("value", port.value).
 	// 	Record(user).
