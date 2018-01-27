@@ -32,6 +32,9 @@ func SetPort(c echo.Context) error {
 		return err
 	}
 
+	fmt.Println("Value=", port.Value)
+	fmt.Println("Serial_no=", port.Serial_no)
+	fmt.Println("Port_no=", port.Port_no)
 	//接続ポートテーブルのupdateSQLを発行する
 	_, err := conn.Exec(`
 		UPDATE t_port
@@ -43,9 +46,11 @@ func SetPort(c echo.Context) error {
 		port.Port_no,
 	)
 	if err != nil {
+		fmt.Println("error:", err)
 		return err
 	}
 
 	result := `{"result": true}`
+	fmt.Println(result)
 	return c.JSON(http.StatusOK , result)
 }
