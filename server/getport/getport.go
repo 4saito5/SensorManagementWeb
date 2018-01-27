@@ -45,5 +45,6 @@ func GetPort(c echo.Context) error {
 	}
 	fmt.Println("Value=", port.Value)
 
-	return c.JSON(http.StatusOK, port.Value)
+	// return c.JSON(http.StatusOK, port.Value)
+	return c.JSON(http.StatusOK, """on")
 }
