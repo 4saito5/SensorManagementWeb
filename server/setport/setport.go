@@ -44,8 +44,9 @@ func SetPort(c echo.Context) error {
 	)
 
 
-	condition := dbr.AndMap{"serial_no": port.Serial_no, "name": port.Port_no}
-	fmt.Println(condition)
+	// condition := dbr.AndMap{"serial_no": port.Serial_no, "name": port.Port_no}
+	// fmt.Println(condition)
+	fmt.Println("テスト")
 	// result, err := sess.Update("t_port").
 	// 	Set("value", port.value).
 	// 	Record(user).
