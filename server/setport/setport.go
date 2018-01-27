@@ -38,7 +38,7 @@ func SetPort(c echo.Context) error {
 		SET value = '?'
 		WHERE serial_no = '?'
 		  AND port_no = ?` ,
-		port.value
+		port.Value
 		port.Serial_no ,
 		port.Port_no ,
 	)
