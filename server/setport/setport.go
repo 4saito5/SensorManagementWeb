@@ -6,6 +6,7 @@ import (
 	_ "github.com/go-sql-driver/mysql"
 	// "github.com/gocraft/dbr"
 	"github.com/labstack/echo"
+	"encoding/json"
 	"fmt"
 )
 
@@ -33,7 +34,7 @@ func SetPort(c echo.Context) error {
 	}
 
 	//接続ポートテーブルのupdateSQLを発行する
-	result, err := conn.Exec(`
+	_, err := conn.Exec(`
 		UPDATE t_port
 		SET value = '?'
 		WHERE serial_no = '?'
@@ -42,8 +43,10 @@ func SetPort(c echo.Context) error {
 		port.Serial_no,
 		port.Port_no,
 	)
-	fmt.Println(result)
-	fmt.Println(err)
-		
-	return c.JSON(http.StatusOK , "あっぷでーと")
+	if err != nil {
+		return err
+	}
+
+	result := `{"result": true"}`
+	return c.JSON(http.StatusOK , "result")
 }
