@@ -6,8 +6,7 @@ import (
 	_ "github.com/go-sql-driver/mysql"
 	// "github.com/gocraft/dbr"
 	"github.com/labstack/echo"
-	"encoding/json"
-	"fmt"
+	// "fmt"
 )
 
 //ポート情報
