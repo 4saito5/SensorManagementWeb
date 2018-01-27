@@ -38,8 +38,8 @@ func SetPort(c echo.Context) error {
 	//接続ポートテーブルのupdateSQLを発行する
 	_, err := conn.Exec(`
 		UPDATE t_port
-		SET value = '?'
-		WHERE serial_no = '?'
+		SET value = ?
+		WHERE serial_no = ?
 		  AND port_no = ?`,
 		port.Value,
 		port.Serial_no,
