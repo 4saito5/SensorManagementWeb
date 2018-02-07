@@ -5,7 +5,7 @@ import { Field, reduxForm } from 'redux-form'
 const HomeForm = props => {
   return (
     <form>
-    <h1>タイトル</h1>
+    <h1>センサマネージメントシステム</h1>
 
       <h3>電磁弁の操作</h3>
       <div>
