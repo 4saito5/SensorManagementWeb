@@ -13,7 +13,7 @@ const HomeForm = props => {
         <button type="button" onClick={() => props.actions.setPort(1, 'off')}>　Off　</button>
       </div>
 
-      <h3>ポート2の操作</h3>
+      <h3>水道管の操作</h3>
       <div>
         <button type="button" onClick={() => props.actions.setPort(2, 'on')}>　On　</button>
         <button type="button" onClick={() => props.actions.setPort(2, 'off')}>　Off　</button>
